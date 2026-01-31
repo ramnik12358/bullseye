@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             BullseyeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = "Niklas",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
