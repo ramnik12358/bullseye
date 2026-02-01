@@ -18,14 +18,15 @@ import com.ramniksoftware.bullseye.R
 fun GameDetail(
     modifier: Modifier = Modifier,
     totalScore: Int = 0,
-    round: Int = 1
+    round: Int = 1,
+    onStartOverClicked: () -> Unit
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly,
         modifier = modifier
     ) {
-        Button(onClick = {}) {
+        Button(onClick = { onStartOverClicked() }) {
             Text(text = stringResource(R.string.start_over))
         }
         GameInfo(label = stringResource(R.string.score_label), value = totalScore)
@@ -50,5 +51,5 @@ fun GameInfo(label: String, modifier: Modifier = Modifier, value: Int = 0) {
 @Preview(showBackground = true)
 @Composable
 private fun GameDetailPreview() {
-    GameDetail()
+    GameDetail(onStartOverClicked = {})
 }
