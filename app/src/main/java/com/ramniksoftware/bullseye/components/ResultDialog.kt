@@ -12,6 +12,7 @@ import com.ramniksoftware.bullseye.R
 @Composable
 fun ResultDialog(
     hideDialog: () -> Unit,
+    onRoundIncrement: () -> Unit,
     sliderValue: Int,
     points: Int,
     modifier: Modifier = Modifier
@@ -20,11 +21,13 @@ fun ResultDialog(
         modifier = modifier,
         onDismissRequest = {
             hideDialog()
+            onRoundIncrement()
         },
         confirmButton = {
             TextButton(
                 onClick = {
                     hideDialog()
+                    onRoundIncrement()
                 }
             ) {
                 Text(stringResource(R.string.result_dialog_button_text))
