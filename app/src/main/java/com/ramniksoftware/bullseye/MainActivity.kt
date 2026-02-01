@@ -42,7 +42,11 @@ fun MainScreen(modifier: Modifier = Modifier) {
                     navController.navigate("about")
                 })
         }
-        composable("about") { AboutScreen(modifier = modifier) }
+        composable("about") {
+            AboutScreen(
+                modifier = modifier,
+                onNavigateBack = { navController.navigateUp() })
+        }
     }
 }
 
