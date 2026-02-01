@@ -25,8 +25,7 @@ import com.ramniksoftware.bullseye.components.GamePrompt
 import com.ramniksoftware.bullseye.components.ResultDialog
 import com.ramniksoftware.bullseye.components.TargetSlider
 import com.ramniksoftware.bullseye.ui.theme.BullseyeTheme
-import kotlin.math.max
-import kotlin.math.min
+import kotlin.math.abs
 import kotlin.random.Random
 
 @Composable
@@ -38,7 +37,9 @@ fun GameScreen() {
     val sliderInt = (sliderValue * 100).toInt()
 
     fun pointsForCurrentRound(): Int {
-        return max(sliderInt, targetValue) - min(sliderInt, targetValue)
+        val maxScore = 100
+        val difference = abs(targetValue - sliderInt)
+        return maxScore - difference
     }
 
     Column(
