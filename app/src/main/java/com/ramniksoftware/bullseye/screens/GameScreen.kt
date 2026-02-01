@@ -2,11 +2,13 @@ package com.ramniksoftware.bullseye.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -53,9 +55,11 @@ fun GameScreen() {
             0 -> {
                 100
             }
+
             1 -> {
                 50
             }
+
             else -> {
                 0
             }
@@ -78,12 +82,15 @@ fun GameScreen() {
             difference == 0 -> {
                 R.string.alert_title_1
             }
+
             difference < 5 -> {
                 R.string.alert_title_2
             }
+
             difference <= 10 -> {
                 R.string.alert_title_3
             }
+
             else -> {
                 R.string.alert_title_4
             }
@@ -112,10 +119,14 @@ fun GameScreen() {
                     sliderValue = value
                 }
             )
-            Button(onClick = {
-                alertIsVisible = true
-                totalScore += pointsForCurrentRound()
-            }) {
+            Button(
+                onClick = {
+                    alertIsVisible = true
+                    totalScore += pointsForCurrentRound()
+                },
+                shape = MaterialTheme.shapes.medium,
+                contentPadding = PaddingValues(16.dp)
+            ) {
                 Text(stringResource(R.string.hit_me_button_text))
             }
             GameDetail(
@@ -123,7 +134,7 @@ fun GameScreen() {
                 round = currentRound,
                 modifier = Modifier.fillMaxWidth(),
                 onStartOverClicked = { startNewGame() }
-                )
+            )
         }
         Spacer(modifier = Modifier.weight(.5f))
 
