@@ -10,6 +10,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -31,12 +33,12 @@ import kotlin.random.Random
 @Composable
 fun GameScreen() {
     var alertIsVisible by rememberSaveable { mutableStateOf(false) }
-    var sliderValue by rememberSaveable { mutableStateOf(0.5f)}
-    var targetValue by rememberSaveable { mutableStateOf(Random.nextInt(1, 100))}
+    var sliderValue by rememberSaveable { mutableFloatStateOf(0.5f) }
+    var targetValue by rememberSaveable { mutableIntStateOf(Random.nextInt(1, 100)) }
 
     val sliderInt = (sliderValue * 100).toInt()
 
-    var totalScore by rememberSaveable { mutableStateOf(0)}
+    var totalScore by rememberSaveable { mutableIntStateOf(0) }
 
     fun pointsForCurrentRound(): Int {
         val maxScore = 100
