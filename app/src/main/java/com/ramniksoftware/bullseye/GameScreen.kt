@@ -15,6 +15,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Devices.AUTOMOTIVE_1024p
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ramniksoftware.bullseye.ui.theme.BullseyeTheme
@@ -72,7 +73,7 @@ fun GameScreen() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, device = AUTOMOTIVE_1024p, widthDp = 864, heightDp = 432)
 @Composable
 fun GameScreenPreview() {
     BullseyeTheme {
